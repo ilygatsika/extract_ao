@@ -10,7 +10,7 @@ coordinates. The unit used in the internal format is Bohr (for compatibility wit
 PySCF internal format). The output of the program is a numpy array containing 
 parameters :code:`l,m,n,a,c,A` of GTO functions of the following form::
 
-    c(x-A_x)^l (y-A_y)^m (z-A_z)^n exp(-a|r-A|^2)
+    c(x-Ax)^l (y-Ay)^m (z-Az)^n exp(-a|r-A|^2)
 
 Requirements
 ------------
