@@ -6,11 +6,14 @@ extract_ao
 A Python program for extracting atomic orbitals (AOs) of a Gaussian basis 
 set from PySCF program package (https://github.com/pyscf/pyscf). Extracted AOs are
 stored in internal format as polynomial times Gaussian functions in Cartesian 
-coordinates. The unit used in the internal format is Bohr (for compatibility with 
-PySCF internal format). The output of the program is a numpy array containing 
-parameters :code:`l,m,n,a,c,A` of GTO functions of the following form::
+coordinates. The input of the program is any basis set in NWChem format. The output 
+is a numpy array containing parameters :code:`l,m,n,a,c,A` of GTO functions of the 
+following Cartesian form::
 
     c (x-A_x)^l (y-A_y)^m (z-A_z)^n exp(-a|r-A|^2)
+
+The unit used in the internal format is Bohr (for compatibility with PySCF internal 
+format). 
 
 Requirements
 ------------
