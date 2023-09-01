@@ -4,13 +4,14 @@ extract_ao
 01-09-2023
 
 A Python program for extracting atomic orbitals (AOs) of a Gaussian basis 
-set from PySCF program package (https://github.com/pyscf/pyscf). Extracted AOs are
-stored in internal format as polynomial times Gaussian functions in Cartesian 
-coordinates.
+set from PySCF program package (https://github.com/pyscf/pyscf). Extracted AOs
+are decomposed into Cartesian components and stored in internal format as polynomial 
+times Gaussian functions in Cartesian coordinates.
 
-The input of the program is any basis set in NWChem format. The output 
-is a numpy array of :code:`nbas` rows and 9 columns containing parameters 
-:code:`l,m,n,a,c,iatm,A` of GTO functions of the following Cartesian form::
+The input of the program is a molecular geometry and any basis set in NWChem format. 
+The output is a numpy array of :code:`nbas` rows and 9 columns containing parameters 
+:code:`l,m,n,a,c,iatm,A` of GTO functions centered on the molecular geometry, 
+of the following Cartesian form::
 
     c (x-A_x)^l (y-A_y)^m (z-A_z)^n exp(-a|r-A|^2)
 
@@ -57,9 +58,8 @@ Features
 * Uses the internal basis format for computing custom analytical molecular integrals.
   As a simple example, the two-center one-electron overlap integral
   is implemented for the basis set in internal format. The overlap matrix may be
-  used to compute the condition number of the internal basis in condition.py. A
-  (slow) implementation of the four-center overlap integral is used in
-  ovlp_4c.py.
+  used to compute the condition number of the basis in condition.py. A (slow) 
+  implementation of the four-center overlap integral is used in ovlp_4c.py.
 
 * Add new molecules in "system" directory. 
   Required data format: XYZ
