@@ -307,7 +307,8 @@ def int4c1e(bas, aosym='s1'):
         mat = res.reshape(nbas, nbas, nbas, nbas)
     elif aosym == 's4':
         # symmetrize
-        mat = ao2mo.restore(4, res, nbas)
+        res = res.reshape(nbas*(nbas+1)//2,nbas*(nbas+1)//2)
+        mat = ao2mo.restore(1, res, nbas)
 
     return mat
 
