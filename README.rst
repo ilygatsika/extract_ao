@@ -8,6 +8,15 @@ set from PySCF program package (https://github.com/pyscf/pyscf). Extracted AOs a
 stored in internal format as polynomial times Gaussian functions in Cartesian 
 coordinates.
 
+The input of the program is any basis set in NWChem format. The output 
+is a numpy array of :code:`nbas` rows and 9 columns containing parameters 
+:code:`l,m,n,a,c,iatm,A` of GTO functions of the following Cartesian form::
+
+    c (x-A_x)^l (y-A_y)^m (z-A_z)^n exp(-a|r-A|^2)
+
+The unit used in the internal format is Bohr (for compatibility with PySCF internal 
+format). 
+
 Requirements
 ------------
 
@@ -31,16 +40,6 @@ How to use
 * Run main functionality::
 
     make extract_ao
-
-
-The input of the program is any basis set in NWChem format. The output 
-is a numpy array of :code:`nbas` rows and 9 columns containing parameters 
-:code:`l,m,n,a,c,iatm,A` of GTO functions of the following Cartesian form::
-
-    c (x-A_x)^l (y-A_y)^m (z-A_z)^n exp(-a|r-A|^2)
-
-The unit used in the internal format is Bohr (for compatibility with PySCF internal 
-format). 
 
 * Run applications::
 
