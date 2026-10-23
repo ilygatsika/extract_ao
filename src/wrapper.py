@@ -58,6 +58,8 @@ def extract_ao(mol):
         
         # coefficient (used in integrals of PySCF)
         coeff = mol._libcint_ctr_coeff(ib)[0]
+        assert(len(coeff) == 1)
+        coeff = coeff[0]
         
         # orbital exponent
         expo = mol.bas_exp(ib)[0]
@@ -92,8 +94,5 @@ def extract_ao(mol):
             jc += 1
         
     return bas
-
-
-    
 
 

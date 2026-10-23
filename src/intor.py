@@ -92,9 +92,11 @@ def gaussian(a,i):
 
     if i % 2: 
         return 0
-    else: 
+    else:
+        # fix to be consistent with Gaussian formulas
+        fact2 = 1 if i==0 else factorial2(i-1) 
         return np.sqrt(np.pi) * pow(2,-0.5*i) * \
-                factorial2(i-1) * pow(a, -0.5*(i+1))
+                fact2 * pow(a, -0.5*(i+1))
 
 def gaussian_prod(cbinom, la, lb, PAx, PBx, p):
     """
